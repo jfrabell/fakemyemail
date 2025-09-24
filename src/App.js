@@ -162,18 +162,45 @@ const Testimonials = () => (
   </section>
 );
 
-const CtaSection = () => (
-  <section className="cta">
-    <div className="container">
-      <h2>Ready to Reclaim Your Inbox?</h2>
-      <a href="#get-started" className="btn btn-primary btn-large">Stop Spam Today – Get Started</a>
-      <div className="countdown">
-        <p>Time until the next data breach:</p>
-        <span id="countdown-timer">00:14:23</span>
+const CtaSection = () => {
+  // A simple countdown timer effect for the CTA section
+  React.useEffect(() => {
+    const timerEl = document.getElementById('countdown-timer');
+    if (!timerEl) return;
+
+    let time = 1 * 60 + 23; // 14 minutes 23 seconds
+
+    const interval = setInterval(() => {
+      time--;
+      if (time <= 0) {
+        timerEl.textContent = "You've been spammed!";
+        timerEl.classList.add('spammed');
+        clearInterval(interval);
+        return;
+      }
+
+      const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+      const seconds = (time % 60).toString().padStart(2, '0');
+
+      timerEl.textContent = `00:${minutes}:${seconds}`;
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []); // Empty dependency array ensures this runs only once
+
+  return (
+    <section className="cta">
+      <div className="container">
+        <h2>Ready to Reclaim Your Inbox?</h2>
+        <a href="#get-started" className="btn btn-primary btn-large">Stop Spam Today – Get Started</a>
+        <div className="countdown">
+          <p>Time until the next data breach:</p>
+          <span id="countdown-timer">00:14:23</span>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="footer">

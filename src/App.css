@@ -135,6 +135,7 @@ body {
 .hero h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  color: var(--secondary-hover);
 }
 
 .hero .subheadline {
@@ -162,6 +163,7 @@ section h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 40px;
+  color: var(--secondary-hover);
 }
 
 /* --- Benefits Section --- */
@@ -285,7 +287,7 @@ section h2 {
 }
 
 .cta h2 {
-  color: white;
+  color: var(--secondary-hover);
 }
 
 .btn-large {
@@ -302,6 +304,7 @@ section h2 {
 .cta .countdown {
   margin-top: 2rem;
   font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
 .cta .countdown span {
@@ -309,6 +312,12 @@ section h2 {
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 2px;
+}
+
+.cta .countdown span.spammed {
+  color: #ffc107; /* A nice warning yellow */
+  font-size: 1.8rem;
+  letter-spacing: 1px;
 }
 
 /* --- Footer --- */
