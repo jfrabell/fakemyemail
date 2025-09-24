@@ -1,38 +1,342 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #6c757d;
+  --secondary-hover: #5a6268;
+  --background-color: #ffffff;
+  --surface-color: #f8f9fa;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
 .App {
-  text-align: center;
+  width: 1200px; /* The sacred, unchangeable width of our glorious website */
+  margin: 0 auto; /* Center the masterpiece */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); /* A dramatic shadow for a dramatic site */
+  overflow: hidden; /* Contain the chaos */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* --- Header --- */
+.navbar {
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar .container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.logo .tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar nav li {
+  margin-left: 20px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  margin-left: 20px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 0;
+  color: white;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1558522195-e170d415355c?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.6);
+  z-index: -1;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subheadline {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* --- Sections --- */
+section {
+  padding: 60px 0;
+}
+
+section:nth-of-type(odd) {
+  background-color: var(--surface-color);
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* --- Benefits Section --- */
+.benefits .container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  text-align: center;
+}
+
+.benefit-card {
+  flex: 1;
+}
+
+.benefit-card .emoji {
+  font-size: 3rem;
+}
+
+/* --- Comparison Table --- */
+.comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.comparison th, .comparison td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison th {
+  background-color: var(--surface-color);
+}
+
+.comparison .btn-table {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.comparison .footnote {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* --- Educational Section --- */
+.educational .edu-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.educational .absurd {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+}
+
+/* --- Blog Teaser --- */
+.blog-teaser .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Three columns. No more, no less. */
+  gap: 30px;
+}
+
+.blog-card {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.blog-card h3 {
+  margin-top: 0;
+}
+
+.read-more {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* --- Testimonials --- */
+.testimonials .container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap; /* Thou shalt not wrap. */
+  justify-content: center;
+}
+
+.testimonial-card {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 10px;
+  flex: 1;
+  max-width: 320px;
+}
+
+.testimonial-card p {
+  margin: 0 0 15px 0;
+  font-style: italic;
+}
+
+.testimonial-card span {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+/* --- CTA Section --- */
+.cta {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.cta h2 {
+  color: white;
+}
+
+.btn-large {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.btn-large:hover {
+  background-color: #eee;
+}
+
+.cta .countdown {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.cta .countdown span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #343a40;
+  color: #ccc;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer .disclaimer {
+  font-size: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  color: #aaa;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  color: white;
 }
